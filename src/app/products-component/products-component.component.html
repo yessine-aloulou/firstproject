@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let p of productsList">
+            <div class="card" style="width: 18rem;">
+                <img src="https://cdn.mukama.com/31812/formal-friday-ultrafine-merino-t-shirt-black.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" [ngStyle]="{'color' : p.like>5 && 'red'}">{{ p.title }}</h5>
+                  <p class="card-text">Price: {{ p.price }}</p>
+                  <p class="card-text">Quantity: {{ p.quantity }}</p>
+                  <p class="card-text">Like: {{ p.like }}</p>
+                  <button href="#" [ngClass]=" p.quantity>0 ? 'btn btn-primary' : 'btn btn-danger'"  (click)="buy(p)" [disabled]="p.quantity==0">Buy</button>
+                  <button class="btn btn-primary" (click)="like(p)">Like</button> 
+                  <h3 *ngIf="p.like == maxlikes">Most likes</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
